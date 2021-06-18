@@ -1,13 +1,18 @@
 package com.gra_dus.authorization.presentation
 
-import androidx.lifecycle.ViewModelProvider
+import android.app.Application
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat.finishAffinity
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.gra_dus.authorization.R
 import com.gra_dus.authorization.model.LoginViewModel
+import kotlinx.android.synthetic.main.login_fragment.*
+import kotlin.system.exitProcess
 
 class LoginFragment : Fragment() {
 
@@ -21,6 +26,17 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.login_fragment, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        btn_login?.setOnClickListener{
+            val action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
+            view.findNavController().navigate(action)
+        }
+        btn_exit.setOnClickListener{
+            exitProcess(-1)
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

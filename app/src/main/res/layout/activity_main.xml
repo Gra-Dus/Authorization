@@ -5,24 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
+        android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/nav_graph" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
-        <ImageButton
-            android:id="@id/welcomeFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:icon="@drawable/ic_baseline_group_24"
-            android:title="@string/welcomefrag" />
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+        app:navGraph="@navigation/nav_graph">
+    </androidx.fragment.app.FragmentContainerView>
 </FrameLayout>
